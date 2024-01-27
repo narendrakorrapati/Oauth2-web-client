@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Transaction List</title>
+</head>
+
+<body>
+
+    <h1>Transaction List</h1>
+
+    <!-- Assuming you have a List<DisputeSearchResponse> named 'transactions' in your model -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Response Code</th>
+                <th>Message Type</th>
+                <th>Amount</th>
+                <th>Issuer</th>
+                <th>Acquirer</th>
+                <th>Sequence Number</th>
+                <!--<th>Date Time</th>-->
+            </tr>
+        </thead>
+        <tbody>
+             Iterating over the list of transactions 
+            <tr th:each="transaction : ${transactions}">
+                <td th:text="${transaction.idCol}">ID</td>
+                <td th:text="${transaction.responseCode}">Response Code</td>
+                <td th:text="${transaction.messageType}">Message Type</td>
+                <td th:text="${transaction.amount}">Amount</td>
+                <td th:text="${transaction.issuer}">Issuer</td>
+                <td th:text="${transaction.acquirer}">Acquirer</td>
+                <td th:text="${transaction.sequenceNumber}">Sequence Number</td>
+                <!--<td th:text="${#dates.format(transaction.dateTime, 'yyyy-MM-dd HH:mm:ss')}">Date Time</td>-->
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
